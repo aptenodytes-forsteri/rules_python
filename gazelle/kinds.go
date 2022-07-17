@@ -5,9 +5,11 @@ import (
 )
 
 const (
-	pyBinaryKind  = "py_binary"
-	pyLibraryKind = "py_library"
-	pyTestKind    = "py_test"
+	pyBinaryKind       = "py_binary"
+	pyLibraryKind      = "py_library"
+	pyTestKind         = "py_test"
+	protoPyLibraryKind = "proto_py_library"
+	grpcPyLibraryKind  = "grpc_py_library"
 )
 
 // Kinds returns a map that maps rule names (kinds) and information on how to
@@ -66,6 +68,12 @@ var pyKinds = map[string]rule.KindInfo{
 		ResolveAttrs: map[string]bool{
 			"deps": true,
 		},
+	},
+	protoPyLibraryKind: {
+		MatchAny: true,
+	},
+	grpcPyLibraryKind: {
+		MatchAny: true,
 	},
 }
 
